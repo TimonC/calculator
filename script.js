@@ -48,12 +48,12 @@ const calculator = {
     oper: null,
     newNumber : true,
     numInsert: function(sign){
-        if (!this.newNumber){ 
-            this.displayNumber = this.displayNumber + sign;
-        }
-        else{
+        if (this.newNumber){ 
             this.displayNumber = sign;
             this.newNumber=false;
+        }
+        else if(sign!='.' || !this.displayNumber.includes('.')){
+            this.displayNumber = this.displayNumber + sign;
         }
         },
 
@@ -71,21 +71,31 @@ const calculator = {
             switch (this.oper){
                     case '/':
                         this.displayNumber = '' + parseFloat((this.prev / Number(this.displayNumber)).toFixed(9))
+                        this.oper=sign;
+                        this.prev=Number(this.displayNumber);
                         break;
                     case '*':
                         this.displayNumber = '' + parseFloat((this.prev * Number(this.displayNumber)).toFixed(9))
+                        this.oper=sign;
+                        this.prev=Number(this.displayNumber);
                         break;
                     case '-':
                         this.displayNumber = '' + parseFloat((this.prev - Number(this.displayNumber)).toFixed(9))
+                        this.oper=sign;
+                        this.prev=Number(this.displayNumber);
                         break;
                     case '+':
                         this.displayNumber = '' + parseFloat((this.prev + Number(this.displayNumber)).toFixed(9))
+                        this.oper=sign;
+                        this.prev=Number(this.displayNumber);
+                        break;
+                    case '=':
+                        this.oper=null;
+                        this.prev=0;
                         break;
                     default:
                         console.error("invalid operator sign")
                 }
-                this.oper=null;
-                this.prev=0;
             }
         },
     
