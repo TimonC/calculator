@@ -62,10 +62,6 @@ const calculator = {
         if (this.oper==null){
             this.oper=sign;
             this.prev=Number(this.displayNumber);
-            if (sign=='='){
-                this.oper=null;
-                this.prev=0;
-            }
         }
         else{
             switch (this.oper){
@@ -96,6 +92,11 @@ const calculator = {
                     default:
                         console.error("invalid operator sign")
                 }
+            }
+
+            if (sign=='='){
+                this.oper=null;
+                this.prev=0;
             }
         },
     
@@ -160,6 +161,9 @@ for (let iExtra =0; iExtra<extraList.length; iExtra++){
     button.appendChild(span);
     extras.appendChild(button);
 }
+
+
+
 for (let iOperator =0; iOperator<operatorList.length; iOperator++){
     let span = document.createElement('span');
     span.textContent = operatorList[iOperator];
