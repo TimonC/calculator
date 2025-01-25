@@ -70,16 +70,16 @@ const calculator = {
         else{
             switch (this.oper){
                     case '/':
-                        this.displayNumber = '' + (this.prev / Number(this.displayNumber)).toFixed(9)
+                        this.displayNumber = '' + parseFloat((this.prev / Number(this.displayNumber)).toFixed(9))
                         break;
                     case '*':
-                        this.displayNumber = '' + (this.prev * Number(this.displayNumber)).toFixed(9)
+                        this.displayNumber = '' + parseFloat((this.prev * Number(this.displayNumber)).toFixed(9))
                         break;
                     case '-':
-                        this.displayNumber = '' + (this.prev - Number(this.displayNumber)).toFixed(9)
+                        this.displayNumber = '' + parseFloat((this.prev - Number(this.displayNumber)).toFixed(9))
                         break;
                     case '+':
-                        this.displayNumber = '' + (this.prev + Number(this.displayNumber)).toFixed(9)
+                        this.displayNumber = '' + parseFloat((this.prev + Number(this.displayNumber)).toFixed(9))
                         break;
                     default:
                         console.error("invalid operator sign")
