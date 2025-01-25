@@ -43,7 +43,7 @@ inputs.appendChild(numbers);
 
 
 const calculator = {
-    displayNumber: '',
+    displayNumber: '0',
     prev: 0,
     oper: null,
     newNumber : true,
@@ -70,16 +70,16 @@ const calculator = {
         else{
             switch (this.oper){
                     case '/':
-                        this.displayNumber = '' + (this.prev / Number(this.displayNumber))
+                        this.displayNumber = '' + (this.prev / Number(this.displayNumber)).toFixed(9)
                         break;
                     case '*':
-                        this.displayNumber = '' + (this.prev * Number(this.displayNumber))
+                        this.displayNumber = '' + (this.prev * Number(this.displayNumber)).toFixed(9)
                         break;
                     case '-':
-                        this.displayNumber = '' + (this.prev - Number(this.displayNumber))
+                        this.displayNumber = '' + (this.prev - Number(this.displayNumber)).toFixed(9)
                         break;
                     case '+':
-                        this.displayNumber = '' + (this.prev + Number(this.displayNumber))
+                        this.displayNumber = '' + (this.prev + Number(this.displayNumber)).toFixed(9)
                         break;
                     default:
                         console.error("invalid operator sign")
@@ -92,10 +92,10 @@ const calculator = {
     extra: function(sign){
         switch (sign){
             case 'AC':
-                displayNumber = '';
-                prev = 0;
-                oper = null;
-                newNumber = true;
+                this.displayNumber = '0';
+                this.prev = 0;
+                this.oper = null;
+                this.newNumber = true;
                 break;
             case '+/-':
                 this.displayNumber = '-' + this.displayNumber;
