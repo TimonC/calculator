@@ -1,5 +1,5 @@
 body{
-    font-family: "Roboto", serif;
+    font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,15 @@ span{
 
 #display{
     background-color:gray;
-    text-align:right;
+    display:flex;
+    justify-content:right;
+    align-items:center;
+    box-sizing:border-box;
+    padding-right: 4px;
+    overflow:hidden;
+    font-family: "Roboto", serif;
+    font-weight: 900;
+    font-size:5em;
     margin: 8px;
 }
 
@@ -41,4 +49,8 @@ button{
     border-radius:6px;
     min-width:11em;
     flex:1;
+    transition: opacity 0.2s ease;
+}
+button:active {
+  opacity: 0.6;
 }
