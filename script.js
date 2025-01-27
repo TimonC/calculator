@@ -109,7 +109,11 @@ const calculator = {
                 this.newNumber = true;
                 break;
             case '+/-':
-                this.displayNumber = '-' + this.displayNumber;
+                if (this.displayNumber.charAt(0) == '-') {
+                    this.displayNumber = this.displayNumber.slice(1);
+                } else {
+                    this.displayNumber = '-' + this.displayNumber;
+                }
                 break;
             case '%':
                 this.displayNumber = '' + Number(this.displayNumber)/100;
